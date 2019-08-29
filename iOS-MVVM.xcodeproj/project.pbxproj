@@ -13,7 +13,26 @@
 		D3EF82BD2317EA560029B058 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EF82BB2317EA560029B058 /* Main.storyboard */; };
 		D3EF82BF2317EA570029B058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EF82BE2317EA570029B058 /* Assets.xcassets */; };
 		D3EF82C22317EA570029B058 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EF82C02317EA570029B058 /* LaunchScreen.storyboard */; };
+		D3EF82CB2317EBEA0029B058 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EF82CA2317EBEA0029B058 /* IGListKit.framework */; };
+		D3EF82CC2317EBEA0029B058 /* IGListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3EF82CA2317EBEA0029B058 /* IGListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D3EF82D02317EE3C0029B058 /* FirstViewControllerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82CF2317EE3C0029B058 /* FirstViewControllerListCell.swift */; };
+		D3EF82D72317FD1C0029B058 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EF82D62317FD1C0029B058 /* PromiseKit.framework */; };
+		D3EF82D92317FD210029B058 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EF82D82317FD210029B058 /* RxSwift.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D3EF82CD2317EBEA0029B058 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D3EF82CC2317EBEA0029B058 /* IGListKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D3EF82B22317EA560029B058 /* iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,6 +43,12 @@
 		D3EF82BE2317EA570029B058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3EF82C12317EA570029B058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3EF82C32317EA570029B058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3EF82CA2317EBEA0029B058 /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = Carthage/Build/iOS/IGListKit.framework; sourceTree = "<group>"; };
+		D3EF82CF2317EE3C0029B058 /* FirstViewControllerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewControllerListCell.swift; sourceTree = "<group>"; };
+		D3EF82D22317FD0C0029B058 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/iOS/RxSwift.framework.dSYM; sourceTree = "<group>"; };
+		D3EF82D42317FD100029B058 /* PromiseKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PromiseKit.framework.dSYM; path = Carthage/Build/iOS/PromiseKit.framework.dSYM; sourceTree = "<group>"; };
+		D3EF82D62317FD1C0029B058 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		D3EF82D82317FD210029B058 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EF82CB2317EBEA0029B058 /* IGListKit.framework in Frameworks */,
+				D3EF82D72317FD1C0029B058 /* PromiseKit.framework in Frameworks */,
+				D3EF82D92317FD210029B058 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +70,8 @@
 			children = (
 				D3EF82B42317EA560029B058 /* iOS-MVVM */,
 				D3EF82B32317EA560029B058 /* Products */,
+				D3EF82CA2317EBEA0029B058 /* IGListKit.framework */,
+				D3EF82D12317FD0C0029B058 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +88,25 @@
 			children = (
 				D3EF82B52317EA560029B058 /* AppDelegate.swift */,
 				D3EF82B72317EA560029B058 /* FirstViewController.swift */,
+				D3EF82CF2317EE3C0029B058 /* FirstViewControllerListCell.swift */,
 				D3EF82B92317EA560029B058 /* SecondViewController.swift */,
 				D3EF82BB2317EA560029B058 /* Main.storyboard */,
-				D3EF82BE2317EA570029B058 /* Assets.xcassets */,
-				D3EF82C02317EA570029B058 /* LaunchScreen.storyboard */,
 				D3EF82C32317EA570029B058 /* Info.plist */,
+				D3EF82C02317EA570029B058 /* LaunchScreen.storyboard */,
+				D3EF82BE2317EA570029B058 /* Assets.xcassets */,
 			);
 			path = "iOS-MVVM";
+			sourceTree = "<group>";
+		};
+		D3EF82D12317FD0C0029B058 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3EF82D82317FD210029B058 /* RxSwift.framework */,
+				D3EF82D62317FD1C0029B058 /* PromiseKit.framework */,
+				D3EF82D42317FD100029B058 /* PromiseKit.framework.dSYM */,
+				D3EF82D22317FD0C0029B058 /* RxSwift.framework.dSYM */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +119,8 @@
 				D3EF82AE2317EA560029B058 /* Sources */,
 				D3EF82AF2317EA560029B058 /* Frameworks */,
 				D3EF82B02317EA560029B058 /* Resources */,
+				D3EF82CD2317EBEA0029B058 /* Embed Frameworks */,
+				D3EF82C92317EB900029B058 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -133,12 +177,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D3EF82C92317EB900029B058 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/IGListKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D3EF82AE2317EA560029B058 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D3EF82BA2317EA560029B058 /* SecondViewController.swift in Sources */,
+				D3EF82D02317EE3C0029B058 /* FirstViewControllerListCell.swift in Sources */,
 				D3EF82B62317EA560029B058 /* AppDelegate.swift in Sources */,
 				D3EF82B82317EA560029B058 /* FirstViewController.swift in Sources */,
 			);
@@ -286,7 +355,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "iOS-MVVM/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -294,6 +368,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mewe.iOS-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -303,7 +378,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "iOS-MVVM/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -311,6 +391,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mewe.iOS-MVVM";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
