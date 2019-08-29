@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ContactsSettingsViewController.swift
 //  iOS-MVVM
 //
 //  Created by Marcin Maćkowiak on 29/08/2019.
@@ -9,9 +9,9 @@
 import UIKit
 import PromiseKit
 
-class SecondViewController: UIViewController {
+class ContactsSettingsViewController: UIViewController {
 
-    typealias Settings = (canInvite: Bool, hasPendingInvitations: Bool)
+    typealias Settings = (canBeInvited: Bool, invitationsCount: Int)
 
     enum State {
         case loading
@@ -36,10 +36,10 @@ class SecondViewController: UIViewController {
                 self.canInviteLabel.isHidden = false
 
                 self.canInviteSwitch.isHidden = false
-                self.canInviteSwitch.isOn = settings.canInvite
+                self.canInviteSwitch.isOn = settings.canBeInvited
 
                 self.invitationsLabel.isHidden = false
-                self.invitationsLabel.text = "User has pending invitations: \(settings.hasPendingInvitations ? "yes" : "no")"
+                self.invitationsLabel.text = "Invited users: \(String(settings.invitationsCount))"
             }
         }
     }
@@ -49,7 +49,7 @@ class SecondViewController: UIViewController {
 
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        label.text = "User can invite contacts:"
+        label.text = "User accepts invitations:"
 
         return label
     }()
@@ -67,7 +67,7 @@ class SecondViewController: UIViewController {
 
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        label.text = "User has pending invitations:"
+        label.text = "Invited users:"
 
         return label
     }()
@@ -84,7 +84,9 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Static view"
+        self.title = "Contacts settings"
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Invitations", style: .plain, target: self, action: #selector(didPressInvite))
 
         self.view.addSubview(self.canInviteLabel)
         self.view.addSubview(self.canInviteSwitch)
@@ -128,12 +130,21 @@ class SecondViewController: UIViewController {
         .cauterize()
     }
 
+    @objc
+    private func didPressInvite() {
+        let invitedUsersViewController = InvitedUsersViewController()
+
+        invitedUsersViewController.delegate = self
+
+        self.navigationController?.pushViewController(invitedUsersViewController, animated: true)
+    }
+
     // MARK: - Data
 
     private func getContactsSettings() -> Promise<Settings> {
         return after(seconds: 3)
         .then {
-            return Promise.value((canInvite: true, hasPendingInvitations: false))
+            return Promise.value((canBeInvited: true, invitationsCount: 5))
         }
     }
 
@@ -143,3 +154,16 @@ class SecondViewController: UIViewController {
 
 }
 
+extension ContactsSettingsViewController: InvitedUsersViewControllerDelegate {
+
+    func invitedUsersViewControllerDidInviteUser(_ viewController: InvitedUsersViewController) {
+        switch self.state {
+        case .ready(let settings):
+            self.state = .ready((canBeInvited: settings.canBeInvited, invitationsCount: settings.invitationsCount + 1))
+            
+        case .loading:
+            break
+        }
+    }
+
+}

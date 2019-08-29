@@ -8,16 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		D3EF82B62317EA560029B058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82B52317EA560029B058 /* AppDelegate.swift */; };
-		D3EF82B82317EA560029B058 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82B72317EA560029B058 /* FirstViewController.swift */; };
-		D3EF82BA2317EA560029B058 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82B92317EA560029B058 /* SecondViewController.swift */; };
+		D3EF82B82317EA560029B058 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82B72317EA560029B058 /* ContactsListViewController.swift */; };
+		D3EF82BA2317EA560029B058 /* ContactsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82B92317EA560029B058 /* ContactsSettingsViewController.swift */; };
 		D3EF82BD2317EA560029B058 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EF82BB2317EA560029B058 /* Main.storyboard */; };
 		D3EF82BF2317EA570029B058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3EF82BE2317EA570029B058 /* Assets.xcassets */; };
 		D3EF82C22317EA570029B058 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3EF82C02317EA570029B058 /* LaunchScreen.storyboard */; };
 		D3EF82CB2317EBEA0029B058 /* IGListKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EF82CA2317EBEA0029B058 /* IGListKit.framework */; };
 		D3EF82CC2317EBEA0029B058 /* IGListKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3EF82CA2317EBEA0029B058 /* IGListKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D3EF82D02317EE3C0029B058 /* FirstViewControllerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82CF2317EE3C0029B058 /* FirstViewControllerListCell.swift */; };
+		D3EF82D02317EE3C0029B058 /* ContactsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82CF2317EE3C0029B058 /* ContactsListCell.swift */; };
 		D3EF82D72317FD1C0029B058 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EF82D62317FD1C0029B058 /* PromiseKit.framework */; };
 		D3EF82D92317FD210029B058 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3EF82D82317FD210029B058 /* RxSwift.framework */; };
+		D3EF82DB2318905E0029B058 /* InvitedUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82DA2318905E0029B058 /* InvitedUsersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,18 +38,19 @@
 /* Begin PBXFileReference section */
 		D3EF82B22317EA560029B058 /* iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EF82B52317EA560029B058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3EF82B72317EA560029B058 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		D3EF82B92317EA560029B058 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D3EF82B72317EA560029B058 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
+		D3EF82B92317EA560029B058 /* ContactsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsSettingsViewController.swift; sourceTree = "<group>"; };
 		D3EF82BC2317EA560029B058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3EF82BE2317EA570029B058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3EF82C12317EA570029B058 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3EF82C32317EA570029B058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3EF82CA2317EBEA0029B058 /* IGListKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IGListKit.framework; path = Carthage/Build/iOS/IGListKit.framework; sourceTree = "<group>"; };
-		D3EF82CF2317EE3C0029B058 /* FirstViewControllerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewControllerListCell.swift; sourceTree = "<group>"; };
+		D3EF82CF2317EE3C0029B058 /* ContactsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListCell.swift; sourceTree = "<group>"; };
 		D3EF82D22317FD0C0029B058 /* RxSwift.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RxSwift.framework.dSYM; path = Carthage/Build/iOS/RxSwift.framework.dSYM; sourceTree = "<group>"; };
 		D3EF82D42317FD100029B058 /* PromiseKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = PromiseKit.framework.dSYM; path = Carthage/Build/iOS/PromiseKit.framework.dSYM; sourceTree = "<group>"; };
 		D3EF82D62317FD1C0029B058 /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		D3EF82D82317FD210029B058 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		D3EF82DA2318905E0029B058 /* InvitedUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitedUsersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,6 @@
 			children = (
 				D3EF82B42317EA560029B058 /* iOS-MVVM */,
 				D3EF82B32317EA560029B058 /* Products */,
-				D3EF82CA2317EBEA0029B058 /* IGListKit.framework */,
 				D3EF82D12317FD0C0029B058 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -87,9 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				D3EF82B52317EA560029B058 /* AppDelegate.swift */,
-				D3EF82B72317EA560029B058 /* FirstViewController.swift */,
-				D3EF82CF2317EE3C0029B058 /* FirstViewControllerListCell.swift */,
-				D3EF82B92317EA560029B058 /* SecondViewController.swift */,
+				D3EF82B72317EA560029B058 /* ContactsListViewController.swift */,
+				D3EF82CF2317EE3C0029B058 /* ContactsListCell.swift */,
+				D3EF82B92317EA560029B058 /* ContactsSettingsViewController.swift */,
+				D3EF82DA2318905E0029B058 /* InvitedUsersViewController.swift */,
 				D3EF82BB2317EA560029B058 /* Main.storyboard */,
 				D3EF82C32317EA570029B058 /* Info.plist */,
 				D3EF82C02317EA570029B058 /* LaunchScreen.storyboard */,
@@ -101,6 +103,7 @@
 		D3EF82D12317FD0C0029B058 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D3EF82CA2317EBEA0029B058 /* IGListKit.framework */,
 				D3EF82D82317FD210029B058 /* RxSwift.framework */,
 				D3EF82D62317FD1C0029B058 /* PromiseKit.framework */,
 				D3EF82D42317FD100029B058 /* PromiseKit.framework.dSYM */,
@@ -206,10 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3EF82BA2317EA560029B058 /* SecondViewController.swift in Sources */,
-				D3EF82D02317EE3C0029B058 /* FirstViewControllerListCell.swift in Sources */,
+				D3EF82BA2317EA560029B058 /* ContactsSettingsViewController.swift in Sources */,
+				D3EF82DB2318905E0029B058 /* InvitedUsersViewController.swift in Sources */,
+				D3EF82D02317EE3C0029B058 /* ContactsListCell.swift in Sources */,
 				D3EF82B62317EA560029B058 /* AppDelegate.swift in Sources */,
-				D3EF82B82317EA560029B058 /* FirstViewController.swift in Sources */,
+				D3EF82B82317EA560029B058 /* ContactsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

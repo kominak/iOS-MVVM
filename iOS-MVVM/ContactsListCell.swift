@@ -8,23 +8,23 @@
 
 import UIKit
 
-protocol FirstViewControllerListCellDelegate: class {
+protocol ContactsListCellDelegate: class {
 
-    func firstViewControllerListCellDidPressTitle(_ cell: FirstViewControllerListCell)
+    func contactsListCellDidPressTitle(_ cell: ContactsListCell)
 
 }
 
-class FirstViewControllerListCell: UICollectionViewCell {
+class ContactsListCell: UICollectionViewCell {
 
     static let cellHeight: CGFloat = 60
 
-    weak var delegate: FirstViewControllerListCellDelegate?
+    weak var delegate: ContactsListCellDelegate?
 
     var title: String? {
         didSet {
             guard let order = self.title else { return }
 
-            self.titleLabel.text = "This is \(order) cell"
+            self.titleLabel.text = "Contact \(order)"
         }
     }
 
@@ -59,7 +59,7 @@ class FirstViewControllerListCell: UICollectionViewCell {
 
     @objc
     private func didPressTitle() {
-        self.delegate?.firstViewControllerListCellDidPressTitle(self)
+        self.delegate?.contactsListCellDidPressTitle(self)
     }
 
 }

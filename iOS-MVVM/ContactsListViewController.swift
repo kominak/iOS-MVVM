@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  ContactsListViewController.swift
 //  iOS-MVVM
 //
 //  Created by Marcin Maćkowiak on 29/08/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import IGListKit
 
-class FirstViewController: UIViewController {
+class ContactsListViewController: UIViewController {
 
     private lazy var adapter = {
         ListAdapter(updater: ListAdapterUpdater(), viewController: self)
@@ -28,7 +28,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "List"
+        self.title = "Contacts list"
         
         self.view.addSubview(self.collectionView)
         NSLayoutConstraint.activate([
@@ -46,7 +46,7 @@ class FirstViewController: UIViewController {
 
 // MARK: - ListAdapterDataSource
 
-extension FirstViewController: ListAdapterDataSource {
+extension ContactsListViewController: ListAdapterDataSource {
 
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         return Array(1...40).map({ String($0) as NSString })
@@ -55,10 +55,10 @@ extension FirstViewController: ListAdapterDataSource {
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
         if object is String {
             return ListSingleSectionController(
-                cellClass: FirstViewControllerListCell.self,
+                cellClass: ContactsListCell.self,
                 configureBlock: { [weak self] (object, cell) in
                     guard
-                        let firstListCell = cell as? FirstViewControllerListCell,
+                        let firstListCell = cell as? ContactsListCell,
                         let order = object as? String
                     else {
                         return
@@ -67,7 +67,7 @@ extension FirstViewController: ListAdapterDataSource {
                     firstListCell.title = order
                     firstListCell.delegate = self
                 }, sizeBlock: { (object, collectionContext) -> CGSize in
-                    return CGSize(width: collectionContext!.containerSize.width, height: FirstViewControllerListCell.cellHeight)
+                    return CGSize(width: collectionContext!.containerSize.width, height: ContactsListCell.cellHeight)
                 }
             )
         }
@@ -81,9 +81,9 @@ extension FirstViewController: ListAdapterDataSource {
 
 }
 
-extension FirstViewController: FirstViewControllerListCellDelegate {
+extension ContactsListViewController: ContactsListCellDelegate {
 
-    func firstViewControllerListCellDidPressTitle(_ cell: FirstViewControllerListCell) {
+    func contactsListCellDidPressTitle(_ cell: ContactsListCell) {
         guard let title = cell.title else { return }
 
         let alert = UIAlertController(title: nil, message: "Pressed title: \(title)", preferredStyle: .alert)
