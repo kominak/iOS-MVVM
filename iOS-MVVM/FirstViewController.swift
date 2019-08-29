@@ -56,7 +56,7 @@ extension FirstViewController: ListAdapterDataSource {
         if object is String {
             return ListSingleSectionController(
                 cellClass: FirstViewControllerListCell.self,
-                configureBlock: { (object, cell) in
+                configureBlock: { [weak self] (object, cell) in
                     guard
                         let firstListCell = cell as? FirstViewControllerListCell,
                         let order = object as? String
