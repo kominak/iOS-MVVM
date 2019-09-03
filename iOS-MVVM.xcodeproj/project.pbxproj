@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54047AC1231E770A00FD90D1 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54047AC0231E770A00FD90D1 /* Contact.swift */; };
+		54047AC3231E7DA300FD90D1 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54047AC2231E7DA300FD90D1 /* ContactDetailViewController.swift */; };
+		54047AC5231E834C00FD90D1 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54047AC4231E834C00FD90D1 /* Networking.swift */; };
 		D3EF82B62317EA560029B058 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82B52317EA560029B058 /* AppDelegate.swift */; };
 		D3EF82B82317EA560029B058 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82B72317EA560029B058 /* ContactsListViewController.swift */; };
 		D3EF82BA2317EA560029B058 /* ContactsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EF82B92317EA560029B058 /* ContactsSettingsViewController.swift */; };
@@ -36,6 +39,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		54047AC0231E770A00FD90D1 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		54047AC2231E7DA300FD90D1 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
+		54047AC4231E834C00FD90D1 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		D3EF82B22317EA560029B058 /* iOS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3EF82B52317EA560029B058 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3EF82B72317EA560029B058 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
@@ -88,8 +94,11 @@
 			isa = PBXGroup;
 			children = (
 				D3EF82B52317EA560029B058 /* AppDelegate.swift */,
+				54047AC0231E770A00FD90D1 /* Contact.swift */,
+				54047AC4231E834C00FD90D1 /* Networking.swift */,
 				D3EF82B72317EA560029B058 /* ContactsListViewController.swift */,
 				D3EF82CF2317EE3C0029B058 /* ContactsListCell.swift */,
+				54047AC2231E7DA300FD90D1 /* ContactDetailViewController.swift */,
 				D3EF82B92317EA560029B058 /* ContactsSettingsViewController.swift */,
 				D3EF82DA2318905E0029B058 /* InvitedUsersViewController.swift */,
 				D3EF82BB2317EA560029B058 /* Main.storyboard */,
@@ -209,8 +218,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54047AC1231E770A00FD90D1 /* Contact.swift in Sources */,
 				D3EF82BA2317EA560029B058 /* ContactsSettingsViewController.swift in Sources */,
 				D3EF82DB2318905E0029B058 /* InvitedUsersViewController.swift in Sources */,
+				54047AC5231E834C00FD90D1 /* Networking.swift in Sources */,
+				54047AC3231E7DA300FD90D1 /* ContactDetailViewController.swift in Sources */,
 				D3EF82D02317EE3C0029B058 /* ContactsListCell.swift in Sources */,
 				D3EF82B62317EA560029B058 /* AppDelegate.swift in Sources */,
 				D3EF82B82317EA560029B058 /* ContactsListViewController.swift in Sources */,

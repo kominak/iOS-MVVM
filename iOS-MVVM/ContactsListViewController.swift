@@ -11,6 +11,8 @@ import IGListKit
 
 class ContactsListViewController: UIViewController {
 
+    private var contacts: [Contact] = []
+
     private lazy var adapter = {
         ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
@@ -29,7 +31,7 @@ class ContactsListViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Contacts list"
-        
+
         self.view.addSubview(self.collectionView)
         NSLayoutConstraint.activate([
             self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor),
@@ -40,6 +42,13 @@ class ContactsListViewController: UIViewController {
 
         self.adapter.collectionView = self.collectionView
         self.adapter.dataSource = self
+
+        Networking.shared.loadContacts()
+        .done { contacts in
+            self.contacts = contacts
+            self.adapter.performUpdates(animated: true)
+        }
+        .cauterize()
     }
 
 }
@@ -49,24 +58,25 @@ class ContactsListViewController: UIViewController {
 extension ContactsListViewController: ListAdapterDataSource {
 
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
-        return Array(1...40).map({ String($0) as NSString })
+        return self.contacts
     }
 
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        if object is String {
+        if object is Contact {
             return ListSingleSectionController(
                 cellClass: ContactsListCell.self,
                 configureBlock: { [weak self] (object, cell) in
                     guard
-                        let firstListCell = cell as? ContactsListCell,
-                        let order = object as? String
+                        let cell = cell as? ContactsListCell,
+                        let object = object as? Contact
                     else {
                         return
                     }
 
-                    firstListCell.title = order
-                    firstListCell.delegate = self
-                }, sizeBlock: { (object, collectionContext) -> CGSize in
+                    cell.contact = object
+                    cell.delegate = self
+                },
+                sizeBlock: { (object, collectionContext) -> CGSize in
                     return CGSize(width: collectionContext!.containerSize.width, height: ContactsListCell.cellHeight)
                 }
             )
@@ -76,22 +86,52 @@ extension ContactsListViewController: ListAdapterDataSource {
     }
 
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
-        return nil
+        let view = UIActivityIndicatorView(style: .gray)
+        view.startAnimating()
+        return view
     }
 
 }
 
 extension ContactsListViewController: ContactsListCellDelegate {
 
+    func contactsListCell(_ cell: ContactsListCell, didChangeCheckboxValueTo newValue: Bool) {
+        guard let contact = cell.contact else { return }
+
+        let oldValue = contact.isGoodFriend
+
+        contact.isGoodFriend = newValue
+
+        Networking.shared.saveContact(contact)
+        .catch { _ in
+            contact.isGoodFriend = oldValue
+
+            let alert = UIAlertController(title: "Failure", message: "Saving details for \(contact.name) failed.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "What can one do...", style: .default))
+
+            self.present(alert, animated: true)
+        }
+        .finally {
+            // TODO: Ideally reload only relevant cells - not doable with shared state, though.
+            self.adapter.reloadData()
+        }
+    }
+
     func contactsListCellDidPressTitle(_ cell: ContactsListCell) {
-        guard let title = cell.title else { return }
+        guard let contact = cell.contact else { return }
 
-        let alert = UIAlertController(title: nil, message: "Pressed title: \(title)", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "OK", style: .default)
+        let detailViewController = ContactDetailViewController(contact: contact)
+        detailViewController.delegate = self
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
 
-        alert.addAction(confirmAction)
+}
 
-        self.present(alert, animated: true)
+extension ContactsListViewController: ContactDetailViewControllerDelegate {
+
+    func contactDetailViewController(_ viewController: ContactDetailViewController, didUpdate contact: Contact) {
+        // TODO: Ideally reload only relevant cells - not doable with shared state, though.
+        self.adapter.reloadData()
     }
 
 }
